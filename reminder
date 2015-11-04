@@ -1,0 +1,32 @@
+#!/usr/bin/env python
+
+def main(jobname):
+  import smtplib
+  import ConfigParser
+
+  conf = ConfigParser.ConfigParser()
+  conf.read('reminder.conf')
+
+  jobdeets = {}
+
+  with open(jobname) as jobfile:
+    line = jobfile.readline()
+    while line.strip() != '':
+      jobdeets[line.split(':')[0].strip().lower()] = line.split(':')[1].strip()
+      line = jobfile.readline()
+    
+    jobmessage = jobfile.read()
+
+  smtpHost = conf.get(jobDeets['from'], 'host')
+  smtpUser = conf.get(jobDeets['from'], 'user')
+  smtpPass = conf.get(jobDeets['from'], 'pass')
+  fromAddr = conf.get(jobDeets['from'], 'address')
+
+  smtp = smtplib.SMTP(smtpHost)
+  smtp.ehlo()
+  smtp.starttls()
+  smtp.login(smtpUser, smtpPass)
+  smtp.sendmail(fromAddr, jobDeets['to'], jobmessage)
+
+if __name__ == "__main__":
+  main(sys.argv[1])
