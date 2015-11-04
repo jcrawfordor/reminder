@@ -22,9 +22,7 @@ def main(jobname):
   smtpPass = conf.get(jobDeets['from'], 'pass')
   fromAddr = conf.get(jobDeets['from'], 'address')
 
-  smtp = smtplib.SMTP(smtpHost)
-  smtp.ehlo()
-  smtp.starttls()
+  smtp = smtplib.SMTP_SSL(smtpHost)
   smtp.login(smtpUser, smtpPass)
   smtp.sendmail(fromAddr, jobDeets['to'], jobmessage)
 
