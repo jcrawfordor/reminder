@@ -1,0 +1,9 @@
+To: jesse@jbcrawford.us
+From: example
+Subject: Sample Message
+
+This is an example message to demonstrate how to set up a message file. As you
+can see the format is configuration specific to this message followed by a blank
+line followed by the message body. Note that the From: configuration in the
+message file is NOT an email address, it refers to a block in the reminder.conf
+file.
