@@ -1,0 +1,4 @@
+[example]
+host: smtp.example.com:25
+username: sample
+password: reallygoodpassword
