@@ -3,3 +3,4 @@ host: smtp.example.com:25
 user: sample
 pass: reallygoodpassword
 address: example@example.com
+name: Example Person
