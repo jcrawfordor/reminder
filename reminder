@@ -3,11 +3,12 @@
 import sys
 import smtplib
 import ConfigParser
+import os
 
 def main(jobname):
 
   conf = ConfigParser.ConfigParser()
-  conf.read('reminder.conf')
+  conf.read(os.path.join(os.path.dirname(os.path.realpath(__file__)), 'reminder.conf'))
 
   jobDeets = {}
 
